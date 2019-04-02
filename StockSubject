@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+
+public class StockSubject {
+    public void register(IObserver obs){
+        this.observers.add(obs);
+    }
+
+    public void unregister(IObserver obs){
+
+        this.observers.remove(obs);
+    }
+
+    public void notifyObserver(int val){
+        for (IObserver obs: this.observers){
+            obs.update(val);
+        }
+    }
+
+    ArrayList<IObserver> observers = new ArrayList<>();
+
+    public void UpdateStock(int val){
+        System.out.println("Stock Update");
+        this.notifyObserver(val);
+    }
+}
