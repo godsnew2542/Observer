@@ -1,0 +1,18 @@
+public class Main {
+
+    public static void main(String[] args) {
+        StockSubject subject = new StockSubject();
+        IObserver web = new WebStockMonitor();
+        IObserver mobile = new MobileStockMonitor();
+        subject.register(web);
+        subject.register(mobile);
+        subject.UpdateStock(45);
+        subject.UpdateStock(50);
+        subject.notifyObserver(20);
+
+
+
+
+
+    }
+}
